@@ -31,7 +31,7 @@
   <script type="text/javascript">
   //生成随机数
     function rnd(n,m) {
-      return parseInt(Math.random()*(m-n))+n;
+      return parseInt(Math.random()*(m-n)) + n;
     }
   //创建li标签
     function creatLi() {
