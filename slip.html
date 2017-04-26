@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <style type="text/css">
+    div {
+      width: 300px;
+      height: 300px;
+    }
+    #container {
+      margin: 0 auto;
+
+    }
+    #div1,#div2,#div3,#div4 {
+      margin: 0 auto;
+      opacity: 0;
+      transition: all easy-out 0.5s;
+      z-index: 0;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+    #div1 {
+      background: orange;
+      opacity: 1;
+      z-index: 1;
+    }
+    #div2 {
+      background-color: pink;
+    }
+    #div3 {
+      background: deepskyblue;
+    }
+    #div4 {
+      background-color: green;
+    }
+    #container>div:target{
+      opacity: 1;
+      z-index: 10;
+    }
+    #direct {
+      width: 250px;
+      margin: 0 auto;
+    }
+    li {
+      padding-right: 20px;
+      list-style-type: none;
+      float: left;
+    }
+    li>a{
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div id="div1"></div>
+    <div id="div2"></div>
+    <div id="div3"></div>
+    <div id="div4"></div>
+  </div>
+  <div id="direct">
+  <ul>
+    <li><a href="#div1">div1</li>
+    <li><a href="#div2">div2</li>
+    <li><a href="#div3">div3</li>
+    <li><a href="#div4">div4</li>
+  </ul>
+</div>
+</body>
+</html>

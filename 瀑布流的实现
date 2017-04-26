@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <style type="text/css">
+    *{
+      list-style: none;
+    }
+    div{
+      overflow: hidden;
+    }
+    ul{
+      float: left;
+    }
+    li{
+      width: 300px;
+      margin-bottom: 10px;
+      font-size: 2em;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <ul></ul>
+    <ul></ul>
+    <ul></ul>
+    <ul></ul>
+  </div>
+</body>
+  <script type="text/javascript">
+  //生成随机数
+    function rnd(n,m) {
+      return parseInt(Math.random()*(m-n)) + n;
+    }
+  //创建li标签
+    function creatLi() {
+      let li = document.createElement('li');
+      //设置高度背景颜色
+      li.style.height = rnd(200,400) + "px";
+      li.style.background = 'rgb(' + rnd(0,255) + ',' + rnd(0,255) + ',' + rnd(0,255) + ')';
+      li.innerHTML = "lijahaTalk";
+      return li;
+    }
+    //获取网页被卷去的高度
+    function getScrollTop() {
+      return (document.body.scrollTop || document.documentElement.scrollTop);
+    }
+    //获取可见区域的高度
+    function getClientHeight() {
+      return (document.body.clientHeight || document.documentElement.clientHeight);
+    }
+    //获取网页正文全文的高度
+    function getScrollHeight() {
+      return (document.body.scrollHeight || document.documentElement.scrollHeight);
+    }
+    //向ul标签中添加li标签
+    function addli() {
+      let Ul = document.getElementsByTagName('ul');
+      for (let i = 0; i < Ul.length; i++) {
+        Ul[i].appendChild(creatLi());
+      }
+    }
+
+    window.onload = () => {
+      let Ul = document.getElementsByTagName('ul');
+      for (let i = 0; i < Ul.length; i++) {
+        addli();
+      }
+      //定义页面滚动事件
+      window.onscroll = () => {
+        //判断页面是否滚动到底部
+        if (getScrollTop() + getClientHeight() >= getScrollHeight()) {
+          addli();
+        }
+      }
+    }
+  </script>
+</body>
+</html>
